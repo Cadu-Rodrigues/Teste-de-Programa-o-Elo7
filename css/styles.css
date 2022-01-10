@@ -14,3 +14,17 @@
 .orange {
   color: #f9b562;
 }
+.white {
+  color: #ffffff;
+}
+.container {
+  position: relative;
+  text-align: center;
+}
+.centered {
+  position: absolute;
+  bottom: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+}
