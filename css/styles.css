@@ -1,0 +1,16 @@
+* {
+  color: #8e9294;
+  background-color: #f8f8f8;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.italic {
+  text-transform: italic;
+}
+.aqua {
+  color: #369dac;
+}
+.orange {
+  color: #f9b562;
+}
