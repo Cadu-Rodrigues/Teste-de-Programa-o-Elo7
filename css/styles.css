@@ -17,6 +17,11 @@
 .white {
   color: #ffffff;
 }
+.flex {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
 .container {
   position: relative;
   text-align: center;
