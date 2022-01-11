@@ -2,12 +2,14 @@
   color: #8e9294;
   background-color: #f8f8f8;
 }
+/*Utilidades de texto*/
 .uppercase {
   text-transform: uppercase;
 }
 .italic {
   text-transform: italic;
 }
+/*Cores de texto*/
 .aqua {
   color: #369dac;
 }
@@ -17,11 +19,32 @@
 .white {
   color: #ffffff;
 }
+/*Utilidades de flexbox*/
 .flex {
   display: flex;
+}
+.row {
   flex-flow: row nowrap;
+}
+.column {
+  flex-flow: column wrap;
+}
+.space-evenly {
   justify-content: space-evenly;
 }
+.space-around {
+  justify-content: space-evenly;
+}
+.space-between {
+  justify-content: space-between;
+}
+.center {
+  justify-content: center;
+}
+.align-items-start {
+  align-items: flex-start;
+}
+/*Centralização de texto no banner*/
 .container {
   position: relative;
   text-align: center;
@@ -32,4 +55,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;
+}
+/*Outros*/
+.card h3 {
+  text-align: center;
+}
+.card {
+  max-width: 25%;
+  text-align: justify;
+  align-content: center;
 }
