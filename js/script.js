@@ -89,7 +89,7 @@ function constructHTMLJob(job) {
   a.textContent = job.cargo;
   a.href = job.link;
   a.classList.add("aqua");
-  a.classList.add("jobLink");
+  a.classList.add("styledLink");
   if (job.localizacao) {
     span.textContent =
       job.localizacao.bairro +
