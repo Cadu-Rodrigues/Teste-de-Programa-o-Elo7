@@ -138,6 +138,38 @@
   text-align: justify;
 }
 /* Media Queries */
+@media screen and (min-width: 768px) {
+  .ourTeamSection {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    padding: 3rem;
+  }
+  .ourTeamSectionDescription {
+    max-width: 50%;
+    margin: 0 0 0 1rem;
+  }
+  .card {
+    text-align: justify;
+    padding: 1rem;
+    max-width: 30%;
+  }
+  .cardSection {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: top;
+    justify-content: space-around;
+  }
+  .imagesSection {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .imagesSection img {
+    margin: 0.2rem;
+  }
+}
 @media screen and (min-width: 1024px) {
   .paragraph {
     margin: 1.5rem 3rem;
