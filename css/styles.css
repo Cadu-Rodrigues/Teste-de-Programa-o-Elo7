@@ -23,35 +23,16 @@
 .white {
   color: #ffffff;
 }
-/*Utilidades de flexbox*/
-.flex {
-  display: flex;
-}
-.row {
-  flex-flow: row nowrap;
-}
-.column {
-  flex-flow: column wrap;
-}
-.space-evenly {
-  justify-content: space-evenly;
-}
-.space-around {
-  justify-content: space-evenly;
-}
-.space-between {
-  justify-content: space-between;
-}
-.center {
-  justify-content: center;
-}
-.align-items-start {
-  align-items: flex-start;
-}
 /*Centralização de texto no banner*/
 .container {
   position: relative;
   text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.container hr {
+  align-self: center;
 }
 .centered {
   position: absolute;
@@ -59,6 +40,59 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;
+}
+/*Seções*/
+.ourTeamSection {
+  display: flex;
+  flex-flow: column wrap;
+}
+.knowOurTeamSection {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+.knowOurTeamSection hr {
+  align-self: center;
+}
+.imagesSection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+.cardImage {
+  display: flex;
+  justify-content: center;
+}
+.imagesSection img {
+  max-width: 50%;
+}
+.jobsSection {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.jobsSection img {
+  padding: 1rem;
+}
+.jobsSection h2 {
+  text-align: center;
+}
+.jobsList {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.jobsList li {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.jobsList a {
+  color: #369dac;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 /*Outros*/
 .card h3 {
@@ -79,4 +113,36 @@
 }
 .paragraphDescription {
   text-align: justify;
+}
+/* Media Queries */
+@media screen and (min-width: 1024px) {
+  .ourTeamSection {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  .card {
+    text-align: justify;
+    padding: 1rem;
+    max-width: 30%;
+  }
+  .cardSection {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: top;
+    justify-content: space-around;
+  }
+  .imagesSection {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    padding: 1rem;
+  }
+  .jobsSection img {
+    padding: 3rem;
+  }
+  .jobsList li {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
 }

@@ -78,18 +78,10 @@ function constructHTMLJob(job) {
   let a = document.createElement("a");
   let span = document.createElement("span");
   let li = document.createElement("li");
-  li.classList.add("flex");
-  li.classList.add("column");
-  li.classList.add("center");
-  span.classList.add("flex");
-  span.classList.add("column");
-  span.classList.add("align-self-center");
   li.appendChild(a);
   li.appendChild(span);
   a.textContent = job.cargo;
   a.href = job.link;
-  a.classList.add("aqua");
-  a.classList.add("styledLink");
   if (job.localizacao) {
     span.textContent =
       job.localizacao.bairro +
