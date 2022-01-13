@@ -58,7 +58,7 @@ function returnHttpRequestAccordingToBrowser() {
 
 function appendJobs(result) {
   let jsonResponse = JSON.parse(result);
-  let jobsList = document.createElement("ul");
+  let jobsList = document.getElementById("Vagas");
   cleanInactiveJobs(jsonResponse)
     .then(
       (jsonResponseFiltered) => {
@@ -66,7 +66,6 @@ function appendJobs(result) {
           let constructedHTMLJob = constructHTMLJob(job);
           jobsList.appendChild(constructedHTMLJob);
         });
-        document.getElementById("Jobs").appendChild(jobsList);
       },
       (error) => {
         throw error;
@@ -79,10 +78,18 @@ function constructHTMLJob(job) {
   let a = document.createElement("a");
   let span = document.createElement("span");
   let li = document.createElement("li");
+  li.classList.add("flex");
+  li.classList.add("row");
+  li.classList.add("space-between");
+  span.classList.add("flex");
+  span.classList.add("column");
+  span.classList.add("align-self-center");
   li.appendChild(a);
   li.appendChild(span);
   a.textContent = job.cargo;
   a.href = job.link;
+  a.classList.add("aqua");
+  a.classList.add("jobLink");
   if (job.localizacao) {
     span.textContent =
       job.localizacao.bairro +
