@@ -79,8 +79,8 @@ function constructHTMLJob(job) {
   let span = document.createElement("span");
   let li = document.createElement("li");
   li.classList.add("flex");
-  li.classList.add("row");
-  li.classList.add("space-between");
+  li.classList.add("column");
+  li.classList.add("center");
   span.classList.add("flex");
   span.classList.add("column");
   span.classList.add("align-self-center");
