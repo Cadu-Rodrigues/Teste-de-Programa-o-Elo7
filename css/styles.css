@@ -2,7 +2,6 @@
 
 * {
   color: #8e9294;
-  background-color: #f8f8f8;
   font-family: "Noto Sans", sans-serif;
   margin: 0rem;
 }
@@ -12,6 +11,9 @@
 }
 .italic {
   text-transform: italic;
+}
+.paragraph {
+  margin: 1rem 1rem;
 }
 /*Cores de texto*/
 .aqua {
@@ -36,7 +38,7 @@
 }
 .centered {
   position: absolute;
-  bottom: 50%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;
@@ -45,11 +47,19 @@
 .ourTeamSection {
   display: flex;
   flex-flow: column wrap;
+  margin: 3rem 1rem;
+  background-color: #f8f8f8;
+  padding: 1rem;
+}
+.ourTeamSectionDescription h2 {
+  font-weight: 700;
 }
 .knowOurTeamSection {
   display: flex;
   flex-flow: column nowrap;
   text-align: center;
+  background-color: #f8f8f8;
+  margin: -3rem 0.5rem 3rem 0.5rem;
 }
 .knowOurTeamSection hr {
   align-self: center;
@@ -58,7 +68,10 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  padding: 1rem;
+  padding: 0.5rem;
+}
+.cardSection {
+  margin: 0 1rem;
 }
 .cardImage {
   display: flex;
@@ -71,12 +84,20 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  margin: 0 1rem 3rem 1rem;
 }
 .jobsSection img {
   padding: 1rem;
 }
 .jobsSection h2 {
   text-align: center;
+}
+.jobsSection h3 {
+  margin: 2rem 0.5rem;
+}
+.jobsSection ul {
+  padding-inline-start: 0;
+  margin: 0 0.5rem;
 }
 .jobsList {
   display: flex;
@@ -106,6 +127,7 @@
   text-decoration: none;
   font-size: 1.25rem;
   font-weight: 700;
+  margin: 1rem auto;
 }
 .pageTitle {
   font-size: 2rem;
@@ -117,15 +139,23 @@
 }
 /* Media Queries */
 @media screen and (min-width: 1024px) {
+  .paragraph {
+    margin: 1.5rem 3rem;
+  }
   .pageTitle {
     font-size: 3.25rem;
   }
   .centered {
-    bottom: 33%;
+    top: 55%;
   }
   .ourTeamSection {
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-evenly;
+    padding: 3rem;
+  }
+  .ourTeamSectionDescription {
+    max-width: 50%;
   }
   .card {
     text-align: justify;
@@ -141,8 +171,11 @@
   .imagesSection {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 1rem;
+  }
+  .imagesSection img {
+    margin: 0.2rem;
   }
   .jobsSection img {
     padding: 3rem;
