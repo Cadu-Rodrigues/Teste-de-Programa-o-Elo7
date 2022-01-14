@@ -1,77 +1,64 @@
 const url = "https://www.mocky.io/v2/5d6fb6b1310000f89166087b";
 window.onload = main;
 
-function main() {
-  requestJobs()
-    .then((result) => {
-      appendJobs(result);
-    })
-    .catch((error) => console.error(error));
+async function main() {
+  try {
+    let httpRequest = await returnHttpRequestAccordingToBrowser();
+    let apiResult = await requestJobs(httpRequest);
+    await appendJobs(apiResult);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-function requestJobs() {
-  return new Promise(function (resolve, reject) {
-    returnHttpRequestAccordingToBrowser()
-      .then(
-        (httpRequest) => {
-          httpRequest.onload = () => {
-            resolve(httpRequest.responseText);
-          };
-          httpRequest.onerror = () => {
-            reject(httpRequest.status + ": " + httpRequest.statusText);
-          };
-          httpRequest.open("GET", url, true);
-          httpRequest.send();
-        },
-        (error) => {
-          throw error;
-        }
-      )
-      .catch((error) => {
-        throw error;
-      });
-  });
-}
-
-function returnHttpRequestAccordingToBrowser() {
-  return new Promise(function (resolve, reject) {
-    if (window.XMLHttpRequest) {
-      // Mozilla, Safari, ...
-      httpRequest = new XMLHttpRequest();
-    } else if (window.ActiveXObject) {
-      // IE
+async function returnHttpRequestAccordingToBrowser() {
+  if (window.XMLHttpRequest) {
+    // Mozilla, Safari, ...
+    httpRequest = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {
+    // IE
+    try {
+      httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
       try {
-        httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
-      } catch (e) {
-        try {
-          httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-        } catch (e) {}
-      }
+        httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e) {}
     }
+  }
 
-    if (!httpRequest) {
-      reject("Não foi possível instanciar biblioteca de requisição http");
-    }
-    resolve(httpRequest);
+  if (!httpRequest) {
+    throw "Não foi possível instanciar biblioteca de requisição http";
+  }
+  return httpRequest;
+}
+
+function requestJobs(httpRequest) {
+  return new Promise(function (resolve, reject) {
+    httpRequest.onload = () => {
+      resolve(httpRequest.responseText);
+    };
+    httpRequest.onerror = () => {
+      reject(httpRequest.status + ": " + httpRequest.statusText);
+    };
+    httpRequest.open("GET", url, true);
+    httpRequest.send();
   });
 }
 
-function appendJobs(result) {
+async function appendJobs(result) {
   let jsonResponse = JSON.parse(result);
   let jobsList = document.getElementById("Vagas");
-  cleanInactiveJobs(jsonResponse)
-    .then(
-      (jsonResponseFiltered) => {
-        jsonResponseFiltered.map((job) => {
-          let constructedHTMLJob = constructHTMLJob(job);
-          jobsList.appendChild(constructedHTMLJob);
-        });
-      },
-      (error) => {
-        throw error;
-      }
-    )
-    .catch((e) => console.error(e));
+  let jsonResponseFiltered = await cleanInactiveJobs(jsonResponse);
+  jsonResponseFiltered.map((job) => {
+    let constructedHTMLJob = constructHTMLJob(job);
+    jobsList.appendChild(constructedHTMLJob);
+  });
+}
+
+async function cleanInactiveJobs(jsonResponse) {
+  if (!jsonResponse) throw "Json vazio";
+  let jsonResponseFiltered = jsonResponse.vagas.filter((job) => job.ativa);
+  return jsonResponseFiltered;
 }
 
 function constructHTMLJob(job) {
@@ -93,12 +80,4 @@ function constructHTMLJob(job) {
     span.textContent = "Remoto";
   }
   return li;
-}
-
-function cleanInactiveJobs(jsonResponse) {
-  return new Promise(function (resolve, reject) {
-    if (!jsonResponse) reject("Json vazio");
-    let jsonResponseFiltered = jsonResponse.vagas.filter((job) => job.ativa);
-    resolve(jsonResponseFiltered);
-  });
 }
