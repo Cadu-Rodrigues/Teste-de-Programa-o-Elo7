@@ -148,6 +148,26 @@
 .paragraphDescription {
   text-align: justify;
 }
+/*Loader*/
+.loader {
+  border: 0.4rem solid #f8f8f8;
+  border-top: 0.4rem solid #369dac;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  animation: spin 2s linear infinite;
+  align-self: center;
+  margin: 0 0 3.25rem 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* Media Queries */
 @media screen and (min-width: 768px) {
   /* Margens Gerais*/

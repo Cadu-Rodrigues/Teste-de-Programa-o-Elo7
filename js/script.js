@@ -48,7 +48,9 @@ function requestJobs(httpRequest) {
 async function appendJobs(result) {
   let jsonResponse = JSON.parse(result);
   let jobsList = document.getElementById("Vagas");
+  let loader = document.getElementById("Loader");
   let jsonResponseFiltered = await cleanInactiveJobs(jsonResponse);
+  loader.remove();
   jsonResponseFiltered.map((job) => {
     let constructedHTMLJob = constructHTMLJob(job);
     jobsList.appendChild(constructedHTMLJob);
