@@ -6,8 +6,8 @@
   margin: 0;
 }
 /* Margens Gerais*/
-.ourTeamSectionDescription,
-.ourTeamSectionImage,
+.directorQuoteSectionDescription,
+.directorQuoteSectionImage,
 .knowOurTeamSection h2,
 .imagesSection,
 .cardSection,
@@ -43,12 +43,12 @@
   background-color: #f8f8f8;
   line-height: 1.75rem;
 }
-.ourTeamSectionDescription h2 {
+.directorQuoteSectionDescription h2 {
   font-weight: 700;
   margin: 0 0 0.5rem 0;
   text-transform: uppercase;
 }
-.ourTeamSectionDescription h3 {
+.directorQuoteSectionDescription h3 {
   font-weight: 400;
   margin: 0 0 1.5rem 0;
   color: #f9b562;
@@ -59,13 +59,17 @@
   flex-flow: column nowrap;
   text-align: center;
   justify-content: center;
-  background-color: #f8f8f8;
 }
 .knowOurTeamSection h2 {
   text-transform: uppercase;
 }
 .knowOurTeamSection hr {
   align-self: center;
+}
+.ourCultureSection {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }
 .imagesSection {
   display: flex;
@@ -193,15 +197,15 @@
     top: 55%;
   }
   /* Secões */
-  .ourTeamSection {
+  .directorQuoteSection {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
   }
-  .ourTeamSectionDescription {
+  .directorQuoteSectionDescription {
     width: 50%;
   }
-  .ourTeamSectionImage {
+  .directorQuoteSectionImage {
     width: 50%;
   }
   .knowOurTeamSection h2 {
