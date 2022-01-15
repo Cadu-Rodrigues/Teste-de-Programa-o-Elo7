@@ -15,7 +15,7 @@
   margin: 1rem 2.5rem;
 }
 /*Centralização de texto no banner*/
-.container {
+.workWithUsSection {
   position: relative;
   text-align: center;
   display: flex;
@@ -31,10 +31,10 @@
   background-color: transparent;
 }
 /*Seções*/
-.container h1 {
+.workWithUsSection h1 {
   color: #ffffff;
 }
-.container hr {
+.workWithUsSection hr {
   align-self: center;
 }
 .ourTeamSection {
