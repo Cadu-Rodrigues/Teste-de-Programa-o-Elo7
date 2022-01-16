@@ -3,8 +3,8 @@ window.onload = main;
 
 async function main() {
   try {
-    let httpRequest = await returnHttpRequestAccordingToBrowser();
-    let apiResult = await requestJobs(httpRequest);
+    const httpRequest = await returnHttpRequestAccordingToBrowser();
+    const apiResult = await requestJobs(httpRequest);
     await appendJobs(apiResult);
   } catch (error) {
     console.error(error);
@@ -46,27 +46,27 @@ function requestJobs(httpRequest) {
 }
 
 async function appendJobs(result) {
-  let jsonResponse = JSON.parse(result);
-  let jobsList = document.getElementById("Vagas");
-  let loader = document.getElementById("Loader");
-  let jsonResponseFiltered = await cleanInactiveJobs(jsonResponse);
+  const jsonResponse = JSON.parse(result);
+  const jobsList = document.getElementById("Vagas");
+  const loader = document.getElementById("Loader");
+  const jsonResponseFiltered = await cleanInactiveJobs(jsonResponse);
   loader.remove();
   jsonResponseFiltered.map((job) => {
-    let constructedHTMLJob = constructHTMLJob(job);
+    const constructedHTMLJob = constructHTMLJob(job);
     jobsList.appendChild(constructedHTMLJob);
   });
 }
 
 async function cleanInactiveJobs(jsonResponse) {
   if (!jsonResponse) throw "Json vazio";
-  let jsonResponseFiltered = jsonResponse.vagas.filter((job) => job.ativa);
+  const jsonResponseFiltered = jsonResponse.vagas.filter((job) => job.ativa);
   return jsonResponseFiltered;
 }
 
 function constructHTMLJob(job) {
-  let a = document.createElement("a");
-  let span = document.createElement("span");
-  let li = document.createElement("li");
+  const a = document.createElement("a");
+  const span = document.createElement("span");
+  const li = document.createElement("li");
   li.appendChild(a);
   li.appendChild(span);
   a.textContent = job.cargo;
