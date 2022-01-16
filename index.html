@@ -13,35 +13,34 @@
       content="Desenvolvedor, Developer, Front-End, Back-End, Vagas, Recrutamento, Web, Tecnologia"
     />
     <meta name="author" content="Elo7" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:url" content="https://elo7.com.br/vagas" />
-    <meta property="og:title" content="Trabalhe na Elo7" />
-    <meta property="og:site_name" content="Elo7" />
+    <meta name="og:locale" content="pt_BR" />
+    <meta name="og:url" content="https://elo7.com.br/vagas" />
+    <meta name="og:title" content="Trabalhe na Elo7" />
+    <meta name="og:site_name" content="Elo7" />
     <meta
-      property="og:description"
+      name="og:description"
       content="O Elo7, fundado em 2008, é o maior site de produtos autorais do Brasil. Formamos a maior comunidade de vendedores criativos e buscamos fomentar o comércio de produtos autorais com soluções modernas e de alta tecnologia, facilitando a relação de todos os elos da cadeia de consumo. Venha ser um colaborador!"
     />
     <meta
-      itemprop="image"
-      property="og:image"
+      name="og:image"
       content="https://confident-tereshkova-fafbf5.netlify.app/img/share-social-media-elo7.png"
     />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="256" />
-    <meta property="og:image:height" content="256" />
-    <meta property="og:type" content="website" />
+    <meta name="og:image:type" content="image/png" />
+    <meta name="og:image:width" content="256" />
+    <meta name="og:image:height" content="256" />
+    <meta name="og:type" content="website" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trabalhe no Elo7</title>
     <link rel="shortcut icon" href="img/elo7Favicon.ico" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <main role="main">
+    <main>
       <section class="workWithUsSection">
         <img
           src="img/foto-header.png"
           alt="Imagem do time Elo7 vestido de amarelo e em posição de comemoração"
-          width="100%"
+          class="width100"
           loading="lazy"
         />
         <h1 class="centered">Trabalhe no Elo 7</h1>
@@ -62,13 +61,13 @@
             <img
               src="img/placeholder-video.png"
               alt="Nosso CEO Carlos Curiani em vídeo comentado sobre a Elo7"
+              class="width100"
               loading="lazy"
-              width="100%"
             />
           </div>
           <div class="directorQuoteSectionDescription">
             <h2 class="uppercase">Palavras do CEO</h2>
-            <i><h3>Carlos Curioni</h3></i>
+            <h3>Carlos Curioni</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
               suscipit orci a turpis viverra consequat. In non orci
@@ -168,7 +167,7 @@
         <img
           src="img/foto-bottom.png"
           alt="Imagem panorâmica de uma feira de artesanato com vários stands e uma faixa da elo7 ao fundo"
-          max-width="100%"
+          class="maxWidth100"
           loading="lazy"
         />
         <h2 class="uppercase">Vagas em Aberto</h2>
@@ -177,6 +176,6 @@
         <ul class="jobsList" id="Vagas"></ul>
       </section>
     </main>
+    <script defer src="js/script.js"></script>
   </body>
-  <script async src="js/script.js"></script>
 </html>
