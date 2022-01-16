@@ -46,12 +46,8 @@ function constructHTMLJob(job) {
   a.textContent = job.cargo;
   a.href = job.link;
   if (job.localizacao) {
-    span.textContent =
-      job.localizacao.bairro +
-      " - " +
-      job.localizacao.cidade +
-      ", " +
-      job.localizacao.pais;
+    const { bairro, cidade, pais } = job.localizacao;
+    span.textContent = `${bairro} - ${cidade}, ${pais}`;
     return li;
   }
   span.textContent = "Remoto";
