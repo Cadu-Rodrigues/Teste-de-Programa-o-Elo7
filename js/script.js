@@ -56,10 +56,10 @@ async function appendJobs(result) {
   });
 }
 
-async function cleanInactiveJobs(jsonResponse) {
-  if (!jsonResponse) throw "Json vazio";
-  const jsonResponseFiltered = jsonResponse.vagas.filter((job) => job.ativa);
-  return jsonResponseFiltered;
+async function cleanInactiveJobs(jobs) {
+  if (!jobs) throw "Json vazio";
+  const jobsFiltered = jobs.vagas.filter((job) => job.ativa);
+  return jobsFiltered;
 }
 
 function constructHTMLJob(job) {
