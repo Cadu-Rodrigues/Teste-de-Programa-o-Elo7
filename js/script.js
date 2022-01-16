@@ -3,52 +3,27 @@ window.onload = main;
 
 async function main() {
   try {
-    const httpRequest = await returnHttpRequestAccordingToBrowser();
-    const apiResult = await requestJobs(httpRequest);
-    await appendJobs(apiResult);
+    const jobs = await getJobs();
+    const activeJobs = await cleanInactiveJobs(jobs);
+    await appendJobs(activeJobs);
   } catch (error) {
     console.error(error);
   }
 }
-
-async function returnHttpRequestAccordingToBrowser() {
-  if (window.XMLHttpRequest) {
-    // Mozilla, Safari, ...
-    httpRequest = new XMLHttpRequest();
-  } else if (window.ActiveXObject) {
-    // IE
-    try {
-      httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
-    } catch (e) {
-      try {
-        httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-      } catch (e) {}
-    }
-  }
-
-  if (!httpRequest) {
-    throw "Não foi possível instanciar biblioteca de requisição http";
-  }
-  return httpRequest;
-}
-
-function requestJobs(httpRequest) {
-  return new Promise(function (resolve, reject) {
-    httpRequest.onload = () => {
-      resolve(JSON.parse(httpRequest.responseText));
-    };
-    httpRequest.onerror = () => {
-      reject(httpRequest.status + ": " + httpRequest.statusText);
-    };
-    httpRequest.open("GET", url, true);
-    httpRequest.send();
-  });
+async function getJobs() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  const response = await fetch(url, requestOptions);
+  return response.json();
 }
 
 async function appendJobs(result) {
   const jobsList = document.getElementById("Vagas");
   const loader = document.getElementById("Loader");
-  const jsonResponseFiltered = await cleanInactiveJobs(result);
   loader.remove();
   jsonResponseFiltered.map((job) => {
     const constructedHTMLJob = constructHTMLJob(job);
