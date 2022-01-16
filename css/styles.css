@@ -76,6 +76,9 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
 }
+.imagesSection img {
+  max-width: 25%;
+}
 .cardImage {
   display: flex;
   justify-content: center;
