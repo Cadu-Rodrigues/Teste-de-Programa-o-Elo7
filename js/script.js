@@ -21,11 +21,11 @@ async function getJobs() {
   return response.json();
 }
 
-async function appendJobs(result) {
+async function appendJobs(jobs) {
   const jobsList = document.getElementById("Vagas");
   const loader = document.getElementById("Loader");
   loader.remove();
-  jsonResponseFiltered.map((job) => {
+  jobs.map((job) => {
     const constructedHTMLJob = constructHTMLJob(job);
     jobsList.appendChild(constructedHTMLJob);
   });
