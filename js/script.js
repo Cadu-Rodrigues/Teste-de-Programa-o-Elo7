@@ -35,7 +35,7 @@ async function returnHttpRequestAccordingToBrowser() {
 function requestJobs(httpRequest) {
   return new Promise(function (resolve, reject) {
     httpRequest.onload = () => {
-      resolve(httpRequest.responseText);
+      resolve(JSON.parse(httpRequest.responseText));
     };
     httpRequest.onerror = () => {
       reject(httpRequest.status + ": " + httpRequest.statusText);
@@ -46,10 +46,9 @@ function requestJobs(httpRequest) {
 }
 
 async function appendJobs(result) {
-  const jsonResponse = JSON.parse(result);
   const jobsList = document.getElementById("Vagas");
   const loader = document.getElementById("Loader");
-  const jsonResponseFiltered = await cleanInactiveJobs(jsonResponse);
+  const jsonResponseFiltered = await cleanInactiveJobs(result);
   loader.remove();
   jsonResponseFiltered.map((job) => {
     const constructedHTMLJob = constructHTMLJob(job);
