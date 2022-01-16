@@ -194,7 +194,7 @@
 }
 @media screen and (min-width: 1024px) {
   /* Margens Gerais*/
-  .paragraph {
+  .workWithUsSection p {
     margin: 1rem 3rem;
   }
   .ourTeamSectionDescription,
@@ -205,14 +205,14 @@
   .jobsSection img {
     margin: 3.25rem 3rem;
   }
-  .pageTitle {
-    font-size: 3.25rem;
-  }
   /*Centralização de texto no banner*/
   .centered {
     top: 55%;
   }
   /* Secões */
+  .workWithUsSection h1 {
+    font-size: 3.25rem;
+  }
   .directorQuoteSection {
     display: flex;
     flex-flow: row nowrap;
