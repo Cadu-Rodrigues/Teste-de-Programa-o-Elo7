@@ -88,9 +88,6 @@
   flex-flow: column nowrap;
   justify-content: center;
 }
-.jobsSection img {
-  padding: 1rem;
-}
 .jobsSection h2 {
   text-align: center;
   margin: 1.25rem 0;
