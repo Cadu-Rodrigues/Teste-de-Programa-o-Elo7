@@ -77,8 +77,8 @@ function constructHTMLJob(job) {
       job.localizacao.cidade +
       ", " +
       job.localizacao.pais;
-  } else {
-    span.textContent = "Remoto";
+    return li;
   }
+  span.textContent = "Remoto";
   return li;
 }
