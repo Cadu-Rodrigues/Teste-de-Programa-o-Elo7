@@ -3,6 +3,8 @@ const url = "https://www.mocky.io/v2/5d6fb6b1310000f89166087b";
 async function main() {
   const jobsList = document.getElementById("Vagas");
   const loader = document.getElementById("Loader");
+  loader.className = "loader";
+  loader.textContent = "";
   try {
     const jobs = await getJobs();
     const activeJobs = cleanInactiveJobs(jobs);
