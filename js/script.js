@@ -17,9 +17,9 @@ async function main() {
   }
 }
 function renderNetworkError(jobsList) {
-  const p = document.createElement("span");
-  p.textContent = "Vagas não encontradas";
-  jobsList.appendChild(p);
+  const li = document.createElement("li");
+  li.textContent = "Vagas não encontradas";
+  jobsList.appendChild(li);
 }
 async function getJobs() {
   const requestOptions = {
