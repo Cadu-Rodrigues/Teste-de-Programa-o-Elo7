@@ -26,7 +26,7 @@
 }
 .centered {
   position: absolute;
-  top: 25%;
+  top: 30vw;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent;
@@ -193,9 +193,9 @@ hr {
     margin: 0.3rem;
   }
   /*Centralização de texto no banner*/
-  .centered {
+  /* .centered {
     top: 50%;
-  }
+  } */
   /* Seções */
   .ourTeamSection {
     display: flex;
@@ -222,9 +222,9 @@ hr {
     margin: 3.25rem 3rem;
   }
   /*Centralização de texto no banner*/
-  .centered {
+  /* .centered {
     top: 55%;
-  }
+  } */
   /* Secões */
   .workWithUsSection h1 {
     font-size: 3.25rem;
