@@ -139,6 +139,9 @@
   margin: 1rem auto;
   text-transform: uppercase;
 }
+.styledLink::after {
+  content: " >>";
+}
 .paragraphDescription {
   text-align: justify;
 }
