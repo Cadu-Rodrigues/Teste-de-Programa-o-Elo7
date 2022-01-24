@@ -9,7 +9,7 @@ async function main() {
     const jobs = await getJobs();
     const activeJobs = cleanInactiveJobs(jobs);
     loader.remove();
-    renderJobs(activeJobs, jobsList, loader);
+    renderJobs(activeJobs, jobsList);
   } catch (error) {
     loader.remove();
     renderNetworkError(jobsList);
