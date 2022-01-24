@@ -34,7 +34,7 @@ async function getJobs() {
 }
 
 function renderJobs(jobs, jobsList) {
-  jobs.map((job) => {
+  jobs.forEach((job) => {
     const constructedHTMLJob = constructHTMLJob(job);
     jobsList.appendChild(constructedHTMLJob);
   });
